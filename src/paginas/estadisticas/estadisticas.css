@@ -1,0 +1,61 @@
+.css-172kpif-MuiResponsiveChart-container , .css-172kpif-MuiResponsiveChart-container > svg {
+  overflow: visible !important;
+}
+
+.chart-container {
+  width: 70svw;
+}
+
+.chart-container.productos {
+  margin-left: 200px;
+}
+
+.date-input {
+  --cui-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23323a49' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+  display: block;
+  padding: .375rem .75rem .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--cui-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--cui-body-bg);
+  background-image: var(--cui-form-select-bg-img), var(--cui-form-select-bg-icon, none);
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+  border: var(--cui-border-width) solid var(--cui-border-color);
+  border-radius: var(--cui-border-radius);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.date-input:focus{border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
+
+.form-select.short{
+  width: 112px;
+}
+
+.date-input:focus {
+  border-color: #007BFF; /* Color del borde al enfocarse */
+}
+
+.custom-combo-box {
+    width: 200px; /* Ancho del combo box */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo */
+    color: #333; /* Color del texto */
+    outline: none; /* Quita el borde azul al enfocarse */
+    transition: border-color 0.3s ease; /* Transición para el borde */
+  }
+  
+  .custom-combo-box:focus {
+    border-color: #007BFF; /* Color del borde al enfocarse */
+  }
+  
+  .custom-combo-box option {
+    padding: 10px; /* Espaciado interno de las opciones */
+  }

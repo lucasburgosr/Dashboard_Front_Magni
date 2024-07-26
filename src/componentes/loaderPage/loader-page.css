@@ -1,0 +1,7 @@
+.loader-page {
+    width: 100svw;
+    height: 100svh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,5 @@
+.horario-sucursal {
+    font-size: 0.8rem;
+    max-height: 38px;
+    overflow-y: auto;
+}

@@ -1,0 +1,9 @@
+.accordion-no-arrow::after {
+    display: none;
+    background-image: initial;
+    width: 0;
+}
+
+.modal-xxl > .modal-dialog {
+    max-width: 90%;
+}
