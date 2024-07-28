@@ -1,11 +1,21 @@
 .perfil-imagen-container {
     width: 160px;
 }
-.perfil-imagen {
+
+.text-center {
+    text-align: center;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+.perfil-imagen.grande {
     margin-left: 16px;
-    width: 120px;
-    height: 120px;
-    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     border: 3px solid rgb(0, 0, 0, 0);
     transition: all .25s;
 }

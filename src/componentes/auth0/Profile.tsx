@@ -1,4 +1,4 @@
-import { CircularProgress, Button, TextField, Collapse, Alert } from "@mui/material";
+import { CircularProgress, Button, TextField, Collapse, Alert, Card, CardContent, Typography } from "@mui/material";
 import EmpleadoService from "../../servicios/EmpleadoService";
 import { useState } from "react";
 import Empleado from "../../entidades/Empleado";
@@ -62,50 +62,77 @@ const Profile = () => {
   return (
     <>
       {empleado ? (
-        <div className="m-3">
+        <div className="m-3 d-flex justify-content-center">
           <Collapse in={alerta !== ''} style={{position:'fixed', zIndex:'10', left:'10%', right:'10%'}}>
               <Alert severity="error" onClose={() => setAlerta('')}>{alerta}</Alert>
           </Collapse>
 
-          <div className="row border rounded p-3 my-4 mx-1">
-            <div className="col">
-              <h2 className="ms-3 mb-4">Empleado</h2>
-              <div className="row">
-                <div className="perfil-imagen-container">
-                {isEditing 
-                  ? <CargarImagen imagen={empleado.imagen} handleChange={(key, value) => setEmpleado((prevState:Empleado) => ({
-                    ...prevState,
-                    [key]: value}))} />
-                  : <img src={empleado.imagen.url} alt={empleado.nombre} className="perfil-imagen" />
+          <Card style={{ backgroundColor: '#ccdd91', color: '#fff', maxWidth: '800px', width: '100%' }}>
+            <CardContent>
+              <div className="text-center mb-4">
+                <div className="perfil-imagen-container mx-auto">
+                  {isEditing 
+                    ? <CargarImagen imagen={empleado.imagen} handleChange={(key, value) => setEmpleado((prevState:Empleado) => ({
+                      ...prevState,
+                      [key]: value}))} />
+                    : <img src={empleado.imagen.url} alt={empleado.nombre} className="perfil-imagen grande" />
                   }
                 </div>
-                <div className="col">
+                <Typography variant="h4" className="mt-3" style={{ fontWeight: 'bold' }}>{empleado.nombre} {empleado.apellido}</Typography>
+              </div>
+              <div className="row justify-content-center">
+                <div className="col-md-5 text-start">
+                  <Typography variant="h5" className="mb-3" style={{ fontWeight: 'bold',textAlign:'center' }}>Domicilio</Typography>
+                  {isEditing ? (
+                    <Form.Group controlId="domicilio">
+                      <DomicilioForm domicilio={empleado.domicilio} errors={errors} handleChangeDomicilio={(key, value) => setEmpleado((prevState:Empleado) => ({
+                        ...prevState,
+                        [key]: value
+                      }))} />
+                    </Form.Group>
+                  ) : (
+                    <>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>Calle:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.domicilio.calle} {empleado.domicilio.numero}</Typography>
+                      </div>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>Localidad:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.domicilio.localidad.nombre}</Typography>
+                      </div>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>Provincia:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.domicilio.localidad.provincia.nombre}</Typography>
+                      </div>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>País:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.domicilio.localidad.provincia.pais.nombre}</Typography>
+                      </div>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>Código postal:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.domicilio.cp}</Typography>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <div className="col-md-5 text-start">
+                  <Typography variant="h5" className="mb-3" style={{ fontWeight: 'bold', textAlign:'center' }}>Contacto</Typography>
                   {isEditing ? (
                     <>
                       <TextField
-                        label="Nombre"
-                        name="nombre"
+                        label="Teléfono"
+                        name="telefono"
                         size="small"
-                        value={empleado.nombre}
+                        value={empleado.telefono}
                         onChange={handleInputChange}
                         className="my-2"
                         fullWidth
                       />
                       <TextField
-                        label="Apellido"
-                        name="apellido"
+                        label="E-mail"
+                        name="email"
                         size="small"
-                        value={empleado.apellido}
-                        onChange={handleInputChange}
-                        className="my-2"
-                        fullWidth
-                      />
-                      <TextField
-                        label="Contraseña"
-                        name="contraseña"
-                        size="small"
-                        type="password"
-                        value="************"
+                        value={empleado.email}
                         disabled
                         className="my-2"
                         fullWidth
@@ -113,114 +140,38 @@ const Profile = () => {
                     </>
                   ) : (
                     <>
-                      <div className="d-flex my-2">
-                        <h5 className="me-3">Nombre:</h5>
-                        <h5 className="fw-normal">{empleado.nombre}</h5>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>Teléfono:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.telefono}</Typography>
                       </div>
-                      <div className="d-flex my-2">
-                        <h5 className="me-3">Apellido:</h5>
-                        <h5 className="fw-normal">{empleado.apellido}</h5>
-                      </div>
-                      <div className="d-flex my-2">
-                        <h5 className="me-3">Contraseña:</h5>
-                        <h5 className="fw-normal">************</h5>
+                      <div className="d-flex my-2" style={{ margin: '3px' }}>
+                        <Typography variant="body1" className="me-3" style={{ fontWeight: 'bold' }}>E-mail:</Typography>
+                        <Typography variant="body1" className="fw-normal">{empleado.email}</Typography>
                       </div>
                     </>
                   )}
                 </div>
               </div>
-            </div>
-            <div className="col mt-3">
-              <h4 className="mb-3">Contacto</h4>
-              {isEditing ? (
-                <>
-                  <TextField
-                    label="Teléfono"
-                    name="telefono"
-                    size="small"
-                    value={empleado.telefono}
-                    onChange={handleInputChange}
-                    className="my-2"
-                    fullWidth
-                  />
-                  <TextField
-                    label="E-mail"
-                    name="email"
-                    size="small"
-                    value={empleado.email}
-                    disabled
-                    className="my-2"
-                    fullWidth
-                  />
-                </>
-              ) : (
-                <>
-                  <div className="d-flex my-2">
-                    <h5 className="me-3">Teléfono:</h5>
-                    <h5 className="fw-normal">{empleado.telefono}</h5>
-                  </div>
-                  <div className="d-flex my-2">
-                    <h5 className="me-3">E-mail:</h5>
-                    <h5 className="fw-normal">{empleado.email}</h5>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-
-          <div className="border rounded p-3 my-2 mx-1">
-            <h4 className="mb-3">Domicilio</h4>
-            {isEditing ? (
-              <Form.Group controlId="domicilio">
-              <DomicilioForm domicilio={empleado.domicilio} errors={errors} handleChangeDomicilio={(key, value) => setEmpleado((prevState:Empleado) => ({
-                  ...prevState,
-                  [key]: value
-              }))} />
-              </Form.Group>
-            ) : (
-              <>
-                <div className="d-flex my-2">
-                  <h5 className="me-3">Calle:</h5>
-                  <h5 className="fw-normal">{empleado.domicilio.calle} {empleado.domicilio.numero}</h5>
+              <div className="row justify-content-center mt-4">
+                <div className="col-md-5 text-start">
+                  <Link to={'../'}>
+                    <Button variant="contained" style={{ backgroundColor: '#a6c732', color: '#fff', width: '100%' }}>Volver</Button>
+                  </Link>
                 </div>
-                <div className="row my-2">
-                  <div className="col d-flex">
-                    <h5 className="me-3">Localidad:</h5>
-                    <h5 className="fw-normal">{empleado.domicilio.localidad.nombre}</h5>
-                  </div>
-                  <div className="col d-flex">
-                    <h5 className="me-3">Código postal:</h5>
-                    <h5 className="fw-normal">{empleado.domicilio.cp}</h5>
-                  </div>
+                <div className="col-md-5 text-start">
+                  {isEditing ? (
+                    <Button variant="contained" style={{ backgroundColor: '#a6c732', color: '#fff', width: '100%' }} onClick={handleSubmit}>
+                      Guardar
+                    </Button>
+                  ) : (
+                    <Button variant="contained" style={{ backgroundColor: '#a6c732', color: '#fff', width: '100%' }} onClick={() => setIsEditing(true)}>
+                      Modificar Datos
+                    </Button>
+                  )}
                 </div>
-                <div className="row my-2">
-                  <div className="col d-flex">
-                    <h5 className="me-3">Provincia:</h5>
-                    <h5 className="fw-normal">{empleado.domicilio.localidad.provincia.nombre}</h5>
-                  </div>
-                  <div className="col d-flex">
-                    <h5 className="me-3">País:</h5>
-                    <h5 className="fw-normal">{empleado.domicilio.localidad.provincia.pais.nombre}</h5>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-          
-          <div className="d-flex justify-content-between">
-            <Link to={'../'}>
-              <Button variant="contained" color="secondary">Volver</Button>
-            </Link>
-            {isEditing ? (
-              <Button variant="contained" color="primary" onClick={handleSubmit}>
-                Guardar
-              </Button>
-            ) : (
-              <Button variant="contained" color="secondary" onClick={() => setIsEditing(true)}>
-                Modificar Datos
-              </Button>
-            )}
-          </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       ) : <CircularProgress />}
     </>
