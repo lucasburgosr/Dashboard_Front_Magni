@@ -5,6 +5,7 @@ import ArticuloManufacturadoDetalle from '../../entidades/ArticuloManufacturadoD
 import ModalDetallesManufacturado from "./ModalDetallesManufacturado";
 import { Modal } from "react-bootstrap";
 import BtnDelete from "../btnDelete/BtnDelete";
+import '../../componentes/botonNuevo.css'
 
 function CargarDetallesManufacturado({ articulo, handleChange }: { articulo:ArticuloManufacturado, handleChange: (key: keyof object, value: unknown) => void}) {
     const [detalles, setDetalles] = useState<ArticuloManufacturadoDetalle []>([]);
@@ -49,7 +50,7 @@ function CargarDetallesManufacturado({ articulo, handleChange }: { articulo:Arti
                 <tr>
                     <th colSpan={4}>
                         <div className='row'>
-                        <button type="button" className='btn btn-secondary' onClick={handleShow}>Editar</button>
+                        <button type="button" className='btn btn-secondary custom-btn' onClick={handleShow}>Editar</button>
                         </div>
                     </th>
                 </tr>

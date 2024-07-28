@@ -374,10 +374,10 @@ const Manufacturados = () => {
   return (
     <div className="m-3">
       <Modal show={show} onHide={handleClose} className='modal-xl'>
-        <Modal.Header closeButton>
-          <Modal.Title>Artículo Manufacturado</Modal.Title>
+        <Modal.Header closeButton className="custom-modal-header" >
+          <Modal.Title className="custom-modal-title" >Artículo Manufacturado</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
           <Form>
             <div className='row'>
               <div className='col-lg d-flex flex-column justify-content-between'>
@@ -528,7 +528,7 @@ const Manufacturados = () => {
             <Modal.Body>
               <CategoriasForm />
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer >
               <Button variant="primary" onClick={() => setShowCategorias(false)}>
                 Guardar
               </Button>
@@ -552,11 +552,11 @@ const Manufacturados = () => {
             </Modal.Footer>
           </Modal>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Modal.Footer className='custom-modal-footer'>
+          <Button className='custom-btn' variant="secondary" onClick={handleClose} >
             Cerrar
           </Button>
-          <Button variant="primary" onClick={handleSave}>
+          <Button variant="primary" onClick={handleSave} className='custom-btn-enviar'>
             Enviar
           </Button>
         </Modal.Footer>

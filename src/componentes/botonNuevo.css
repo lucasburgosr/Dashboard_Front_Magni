@@ -1,9 +1,36 @@
 .custom-btn {
     background-color: rgb(27, 27, 27);
-    height: 44px;
+    height:44px;
     font-size: 18px;
   }
   
   .custom-btn:hover {
     background-color: var(--bs-btn-secondary-bg, #6c757d); /* Default to #6c757d if var not defined */
+  }
+
+  .custom-btn-enviar {
+    height: 44px;
+    background-color: #a6c732;
+    font-size: 18px;
+    color: #fff; /* Asegúrate de mantener el color del texto */
+  }
+  
+  .custom-btn-enviar:hover {
+    background-color: #b9d162;
+  }
+
+
+  .custom-modal-header {
+    background-color: #a6c732;
+    text-align: center;
+  }
+  
+  .custom-modal-footer {
+    background-color: #ccdd91;
+  }
+  
+  .custom-modal-title {
+    width: 100%;
+    text-align: center;
+    color: #fff
   }
