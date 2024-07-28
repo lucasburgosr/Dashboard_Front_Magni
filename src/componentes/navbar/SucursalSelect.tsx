@@ -66,17 +66,18 @@ export default function SucursalSelect() {
           'aria-labelledby': 'lock-button',
           role: 'listbox',
         }}
+       
       >
         {sucursalesFiltradas.map((option) => (
           <MenuItem
             key={option.id}
             selected={option.id === sucursalSeleccionada.id}
             onClick={() => handleMenuItemClick(option.id)}
-
+            style={{ backgroundColor: option.id === sucursalSeleccionada.id ? '#a6c732' : '#e0ebc2', color: '#333' }}
           >
             <div className="d-flex" style={{width:'22rem'}}>
               <img src={(option.imagen ?? {url:''}).url} alt="" style={{width:'3rem', height:'3rem', borderRadius:'6px'}}/>
-              <div className='ms-2 text-truncate ' style={{width:'17rem'}}>
+              <div className='ms-2 text-truncate ' style={{width:'17rem' }}>
                 <h6 className='text-secondary  mb-0'><b>{option.nombre ?? ''}</b></h6>
                 <p style={{ fontSize: '0.8rem' }}>{`${option.domicilio.calle} ${option.domicilio.numero}, ${option.domicilio.localidad.nombre}`}</p>
               </div>

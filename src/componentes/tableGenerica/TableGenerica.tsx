@@ -32,6 +32,15 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     return (
+        <div
+        style={{
+          backgroundColor: "#f0f0f0", // Fondo gris claro
+          padding: "15px", // Espaciado interno
+          borderRadius: "10px", // Bordes redondeados
+          boxShadow: "5px 10px 2px rgba(0, 0, 0, 0.3)", // Sombra sutil
+          margin: "5px 0", // Margen superior e inferior
+        }}
+      >
         <>
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
@@ -83,6 +92,7 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
         </>
+        </div>
     );
 }
 

@@ -32,6 +32,11 @@
   color: #e60707;
 }
 
+.nav-link.active {
+  background-color: #b9d162 !important;
+  color: #000000;
+}
+
 .nav-icon {
   color: #a6c732;
 }

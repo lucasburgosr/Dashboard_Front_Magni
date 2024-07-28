@@ -45,7 +45,7 @@ function NavBar({ currentPage }: { currentPage: string }) {
               <>
                 {empleado && empleado.sucursal && (
                   <>
-                    <img src="/buen-sabor.svg" className="ms-3 my-auto" alt="Logo" />
+                    <img src="/buensabor.png" className="ms-3 my-auto" alt="Logo" />
                     <h3 className="user-select-none ms-3 my-auto text-white">
                       {sucursalSeleccionada.nombre}
                     </h3>
