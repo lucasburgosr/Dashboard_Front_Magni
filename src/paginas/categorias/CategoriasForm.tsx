@@ -3,12 +3,11 @@ import Categoria from "../../entidades/Categoria";
 import CategoriaService from "../../servicios/CategoriaService";
 import { useAtributos } from "../../hooks/useAtributos";
 import './categorias.css';
-import BtnVisible from "../../componentes/btnVisible/BtnVisible";
 import { useSucursales } from "../../hooks/useSucursales";
 
 function CategoriasForm() {
     const [categoriasSinFiltrar, setCategoriasSinFilrar] = useState<Categoria[]>([]);
-    const [mostrarVisibles, setMostrarVisibles] = useState<boolean>(true);
+    const [mostrarVisibles] = useState<boolean>(true);
     const [txtDenominacionNueva, setTxtDenominacionNueva] = useState<string>("");
     const [txtValidacion, setTxtValidacion] = useState<string>("");
     const {sucursales, sucursalSeleccionada} = useSucursales();
@@ -201,9 +200,7 @@ function CategoriasForm() {
                         </svg>
                     </div>
                 </button>
-                <div className="mt-2">
-                    <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
-                </div>
+                
             </div>
 
             <div className="accordion accordion-flush" id="accordionFlush0">

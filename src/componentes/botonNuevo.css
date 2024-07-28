@@ -1,0 +1,9 @@
+.custom-btn {
+    background-color: rgb(27, 27, 27);
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .custom-btn:hover {
+    background-color: var(--bs-btn-secondary-bg, #6c757d); /* Default to #6c757d if var not defined */
+  }

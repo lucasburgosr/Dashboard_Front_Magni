@@ -23,6 +23,8 @@ import { useSucursales } from '../../hooks/useSucursales';
 import ChipEstado from '../../componentes/chipEstado/ChipEstado';
 import { Estados as Estado } from '../../entidades/enums/Estados';
 import { format } from 'date-fns';
+import '../../componentes/botonNuevo.css'
+
 
 const Facturacion = () => {
     const [busqueda, setBusqueda] = useState('');
@@ -187,7 +189,7 @@ const Facturacion = () => {
                         <CboBoxFiltrar idCboInput='estado' titulo='Estado' datos={estados} handleChange={handleEstadoChange} />
                     </Form.Group>
                     
-                    <Button className="col-2 btn-secondary" onClick={handleDescargarExcel}>Exportar a Excel</Button>
+                    <Button className="col-2 btn-secondary custom-btn" onClick={handleDescargarExcel}>Exportar a Excel</Button>
         
                 </div>
                 

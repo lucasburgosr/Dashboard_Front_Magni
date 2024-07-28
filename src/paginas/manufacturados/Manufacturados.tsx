@@ -32,7 +32,7 @@ import Slider from 'react-slick';
 import { TablePagination } from '@mui/material';
 import { useSucursales } from '../../hooks/useSucursales';
 import BtnAdd from '../../componentes/btnAdd/BtnAdd';
-import BtnVisible from '../../componentes/btnVisible/BtnVisible';
+import '../../componentes/botonNuevo.css'
 
 
 const Manufacturados = () => {
@@ -42,7 +42,7 @@ const Manufacturados = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<number>(0);
   const [errors, setErrors] = useState<{ [key in keyof ArticuloManufacturado]?: string }>({});
   const [manufacturados, setManufacturados] = useState<ArticuloManufacturado[]>([]);
-  const [mostrarVisibles, setMostrarVisibles] = useState<boolean>(true);
+  const [mostrarVisibles] = useState<boolean>(true);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [show, setShow] = useState(false);
@@ -573,10 +573,11 @@ const Manufacturados = () => {
               datos={categoriasFiltradas}
               handleChange={handleChangeCategoria}
             />
-            <div className="ms-2 mt-2">
-              <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
-            </div>
-            <a className="ms-5 col btn btn-lg btn-primary" style={{ height: '44px', fontSize: '18px' }} onClick={() => handleShow()}>
+            
+            <a
+              className="col ms-5 btn btn-lg btn-secondary custom-btn"
+              onClick={() => handleShow()}
+            >
               Nuevo
             </a>
           </div>

@@ -22,13 +22,12 @@ import Domicilios from '../../componentes/domicilios/Domicilios';
 import BtnDelete from '../../componentes/btnDelete/BtnDelete';
 import BtnEdit from '../../componentes/btnEdit/BtnEdit';
 import { TablePagination } from '@mui/material';
-import BtnVisible from '../../componentes/btnVisible/BtnVisible';
 import BtnAdd from '../../componentes/btnAdd/BtnAdd';
 
 const Clientes = () => {
     const [cliente, setCliente] = useState<Cliente>(new Cliente());
     const [clientes, setClientes] = useState<Cliente[]>([]);
-    const [mostrarVisibles, setMostrarVisibles] = useState<boolean>(true);
+    const [mostrarVisibles] = useState<boolean>(true);
     const [show, setShow] = useState(false);
     const [busqueda, setBusqueda] = useState('');
     const [errors, setErrors] = useState<{ [key in keyof Cliente]?: string }>({});
@@ -313,9 +312,7 @@ const Clientes = () => {
             <div>
                 <div className='mb-3 d-flex justify-content-between'>
                     <SearchBar texto={"Buscar por nombre y apellido"} setBusqueda={setBusqueda} handleBusqueda={handleBusqueda} />
-                    <div className="ms-2 me-auto mt-2">
-                        <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
-                    </div>
+                  
                 </div>
                 
                 <TableContainer component={Paper}>

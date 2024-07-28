@@ -3,11 +3,10 @@ import { useAtributos } from "../../hooks/useAtributos";
 import UnidadMedidaService from "../../servicios/UnidadMedidaService";
 import UnidadMedida from "../../entidades/UnidadMedida";
 import { useSucursales } from "../../hooks/useSucursales";
-import BtnVisible from "../../componentes/btnVisible/BtnVisible";
 import './unidadesMedidas.css';
 
 function UnidadesMedidaForm() {
-    const [mostrarVisibles, setMostrarVisibles] = useState<boolean>(true);
+    const [mostrarVisibles] = useState<boolean>(true);
     const [txtDenominacionNueva, setTxtDenominacionNueva] = useState<string>("");
     const [txtValidacion, setTxtValidacion] = useState<string>("");
     const {sucursales, sucursalSeleccionada} = useSucursales();
@@ -86,9 +85,7 @@ function UnidadesMedidaForm() {
                         </svg>
                     </div>
                 </button>
-                <div className="mt-2">
-                    <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
-                </div>
+                
             </div>
 
             <div className="accordion accordion-flush">

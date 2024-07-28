@@ -23,6 +23,7 @@ import './estadisticas.css';
 import ChipEstado from '../../componentes/chipEstado/ChipEstado';
 import { Estados } from '../../entidades/enums/Estados';
 import { format } from 'date-fns';
+import '../../componentes/botonNuevo.css'
 
 const PedidosClientes = () => {
     const [busqueda, setBusqueda] = useState('');
@@ -185,7 +186,7 @@ const PedidosClientes = () => {
                     <input className="date-input" type="date" value={desde} onChange={handleDesdeChange} />
                     <label className="ms-4 me-2 my-auto">Hasta: </label>
                     <input className="date-input me-2" type="date" value={hasta} onChange={handleHastaChange} />
-                    <Button className="ms-auto col-2 btn-secondary" onClick={handleDescargarExcel}>Exportar a Excel</Button>
+                    <Button className="ms-auto col-2 btn-secondary custom-btn" onClick={handleDescargarExcel}>Exportar a Excel</Button>
                 </div>
                 
                 <TableContainer component={Paper}>

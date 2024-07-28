@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSucursales } from "../../hooks/useSucursales";
 import { BarChart } from "@mui/x-charts";
 import { Button } from "react-bootstrap";
+import '../../componentes/botonNuevo.css'
 
 function ChartRankingProductos() {
     const [desde, setDesde] = useState<string>(new Date().getFullYear()+ '-01-01');
@@ -60,7 +61,7 @@ function ChartRankingProductos() {
                     />
             </div>
 
-            <Button className="ms-auto mt-4 col-2 btn-secondary" onClick={handleDescargarExcel}>Exportar a Excel</Button>
+            <Button className="ms-auto mt-4 col-2 btn-secondary custom-btn" onClick={handleDescargarExcel}>Exportar a Excel</Button> 
         </div>
     );
 }
