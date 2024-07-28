@@ -47,13 +47,13 @@ export default function SucursalSelect() {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
           className='text-truncate'
-          style={{}}
+          style={{backgroundColor: '#a6c732'}}
           sx={{ bgcolor: 'background.paper', border: '1px solid #eeeeee', borderRadius: '6px', width:'14rem' }}
         >
           <ListItemText
             primary= {sucursalSeleccionada.nombre} 
             className='text-truncate'
-            style={{width:'12rem'}}
+            style={{width:'12rem', color: '#fff' }}
           /><svg fill="none" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" tab-index="-1"><path d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5"></path></svg> 
         </ListItemButton>
       </List>
@@ -77,7 +77,7 @@ export default function SucursalSelect() {
             <div className="d-flex" style={{width:'22rem'}}>
               <img src={(option.imagen ?? {url:''}).url} alt="" style={{width:'3rem', height:'3rem', borderRadius:'6px'}}/>
               <div className='ms-2 text-truncate ' style={{width:'17rem'}}>
-                <h6 className='text-primary  mb-0'><b>{option.nombre ?? ''}</b></h6>
+                <h6 className='text-secondary  mb-0'><b>{option.nombre ?? ''}</b></h6>
                 <p style={{ fontSize: '0.8rem' }}>{`${option.domicilio.calle} ${option.domicilio.numero}, ${option.domicilio.localidad.nombre}`}</p>
               </div>
             </div>

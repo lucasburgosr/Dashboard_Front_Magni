@@ -67,7 +67,7 @@ export default function App() {
             <Sidebar />
             <div className="h-100 w-100 flex-grow-1" >
                 <NavBar currentPage={currentPage} />
-                <div className='content' style={{ overflowY: 'auto', height: '87%', background: "#f9f9f9" }}>
+                <div className='content' style={{ overflowY: 'auto', height: '87%', background: "#e0ebc2 " }}>
                     <Suspense fallback={<LoaderPage />}>
                         <Routes>
                             <Route path="/" element={<Home />} />

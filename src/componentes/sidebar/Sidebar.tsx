@@ -44,16 +44,16 @@ function Sidebar() {
             {empleado 
             && (empleado.rol === Rol.Administrador || empleado.rol === Rol.Superadmin )
             && (
-                 <CSidebar className="collapse border-end d-md-block d-block sidebar" id="sidebarCollapse" style={{ position: 'relative', height: '100%', backgroundColor: '#E0E0E0' }} unfoldable>
-                    <CSidebarNav>
+                 <CSidebar className="collapse border-end d-md-block d-block sidebar" id="sidebarCollapse" style={{ position: 'relative', height: '100%', backgroundColor: '#a6c732' }} unfoldable>
+                    <CSidebarNav >
                         {links.map((link, index) => (
                             !link.superAdmin || empleado.rol === Rol.Superadmin ? (
                             link.subItems 
                             ? (
-                                <CNavGroup key={index} toggler={<><CIcon customClassName="nav-icon" icon={link.icon} />{link.label}</>}>
+                                <CNavGroup key={index}  toggler={<><CIcon style={{ color: '#ffffff' }} customClassName="nav-icon" icon={link.icon} />{link.label }</>} >
                                     {link.subItems.map((subLink, subIndex) => (
-                                        <CNavItem key={subIndex}>
-                                            <NavLink to={subLink.to} className="nav-link">
+                                        <CNavItem key={subIndex} >
+                                            <NavLink to={subLink.to} className="nav-link" style={{ color: '#ffffff' }}>
                                                 <span className="nav-icon"><span className="nav-icon-bullet"></span></span>
                                                 {subLink.label}
                                             </NavLink>
@@ -62,8 +62,8 @@ function Sidebar() {
                                 </CNavGroup>
                             ) : (
                                 <CNavItem key={index}>
-                                    <NavLink to={link.to} className="nav-link">
-                                        {link.icon && <CIcon customClassName="nav-icon" icon={link.icon} />}
+                                    <NavLink to={link.to} className="nav-link" style={{ color: '#ffffff' }}>
+                                        {link.icon && <CIcon style={{ color: '#ffffff' }} customClassName="nav-icon" icon={link.icon} />}
                                         {link.component || link.label}
                                     </NavLink>
                                 </CNavItem>

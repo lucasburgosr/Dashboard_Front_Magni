@@ -74,18 +74,18 @@ function Home() {
             <div className="container text-center">
                 <h1 className="mb-4">Bienvenido a {empresaSeleccionada.nombre}</h1>
                 <h2 className="mb-3">{sucursalSeleccionada.nombre}</h2>
-                <h5 className="mb-4">Use el menú contextual para navegar</h5>
+                
                 <Container>
                     <Row>
                         {links.map((link, index) => (
                             (!link.superadmin || empleado.rol === Rol.Superadmin 
                             ?   <Col key={index} xs={12} sm={6} md={4} lg={3} className="mb-4">
-                                    <Card style={{ backgroundColor: '#CCC', height: "100%" }}>
+                                    <Card style={{ backgroundColor: '#b9d162', height: "100%" }}>
                                         <NavLink to={link.to} className="nav-link" style={{ textDecoration: "none", color: "inherit" }}>
                                             <Card.Body className="d-flex flex-column justify-content-between">
                                                 <div>
                                                     <Card.Header className="border rounded" style={{ backgroundColor: '#FFFFFFAA', marginBottom: "10px" }}>
-                                                        <CIcon customClassName="nav-icon" icon={link.icon} size="xl" height={60} />
+                                                        <CIcon style={{color:'#5bbec0' }} customClassName="nav-icon" icon={link.icon} size="xl" height={60} />
                                                     </Card.Header>
                                                     <Card.Title className="text-center">{link.label}</Card.Title>
                                                 </div>
