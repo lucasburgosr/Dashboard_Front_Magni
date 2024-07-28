@@ -36,7 +36,7 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
-                        <TableRow>
+                        <TableRow style={{ backgroundColor: '#b9d162' }}>
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id}
@@ -51,7 +51,7 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
                     </TableHead>
                     <TableBody>
                         {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                            <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+                            <TableRow hover role="checkbox" tabIndex={-1} key={index} style={{ backgroundColor: '#f0f0f0' }}>
                                 {columns.map((column) => {
                                     const value = (row as any)[column.id];
                                     return (
@@ -66,7 +66,7 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
                             </TableRow>
                         ))}
                         {emptyRows > 0 && (
-                            <TableRow style={{ height: 71 * emptyRows }}>
+                            <TableRow style={{ height: 71 * emptyRows, backgroundColor: '#f0f0f0' }}>
                                 <TableCell colSpan={columns.length + 1} />
                             </TableRow>
                         )}
