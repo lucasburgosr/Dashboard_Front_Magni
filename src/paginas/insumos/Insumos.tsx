@@ -584,9 +584,12 @@ const Insumos = () => {
                         <div className="ms-2 mt-2">
                             <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
                         </div>
-                        <a className="col ms-5 btn btn-lg btn-primary" style={{ height: '44px', fontSize: '18px' }} onClick={() => handleShow()}>
-                            Nuevo
-                        </a>
+                        <a
+                        className="col ms-5 btn btn-lg btn-secondary custom-btn"
+                        onClick={() => handleShow()}
+                        >
+                       Nuevo
+                       </a>
                     </div>
                 </div>
 
