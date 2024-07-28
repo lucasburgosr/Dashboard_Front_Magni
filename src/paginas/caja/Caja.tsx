@@ -5,55 +5,55 @@ import { useSucursales } from '../../hooks/useSucursales';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { Estados } from '../../entidades/enums/Estados';
+import { AppBar, Tab, Tabs } from "@mui/material";
 import CajaPedidos from './CajaPedidos';
 import CajaModalPedido from "./CajaModalPedido";
-import { AppBar, Tab, Tabs } from "@mui/material";
 import Facturacion from "../facturacion/Facturacion";
 
 const Caja = () => {
-    const [ tab, setTab ] = useState(0);
-    const [ pedido, setPedido ] = useState<Pedido>(new Pedido());
-    const [ pedidosPendientes, setPedidosPendientes ] = useState<Pedido[]>([]);
-    const [ pedidosTerminados, setPedidosTerminados ] = useState<Pedido[]>([]);
-    const [ show, setShow ] = useState(false);
+    const [tab, setTab] = useState(0);
+    const [pedido, setPedido] = useState<Pedido>(new Pedido());
+    const [pedidosPendientes, setPedidosPendientes] = useState<Pedido[]>([]);
+    const [pedidosTerminados, setPedidosTerminados] = useState<Pedido[]>([]);
+    const [show, setShow] = useState(false);
     const { sucursalSeleccionada } = useSucursales();
 
     const urlapi = import.meta.env.VITE_API_URL;
     const pedidoService = new PedidoService(urlapi + "/api/pedidos");
 
     const getPedidosRest = async () => {
-      const datosPendientes: Pedido[] = await pedidoService.buscarXSucursal(sucursalSeleccionada.id, "", "", "", Estados.PENDIENTE);
-      const datosTerminados: Pedido[] = await pedidoService.buscarXSucursal(sucursalSeleccionada.id, "", "", "", Estados.TERMINADO);
-      setPedidosPendientes(datosPendientes);
-      setPedidosTerminados(datosTerminados);
+        const datosPendientes: Pedido[] = await pedidoService.buscarXSucursal(sucursalSeleccionada.id, "", "", "", Estados.PENDIENTE);
+        const datosTerminados: Pedido[] = await pedidoService.buscarXSucursal(sucursalSeleccionada.id, "", "", "", Estados.TERMINADO);
+        setPedidosPendientes(datosPendientes);
+        setPedidosTerminados(datosTerminados);
     }
 
     const putPedidoRest = async () => {
-      await pedidoService.put(pedido.id, pedido);
+        await pedidoService.put(pedido.id, pedido);
     }
 
     const enviarPedidoRest = async () => {
-      await pedidoService.enviarPedido(pedido.id);
+        await pedidoService.enviarPedido(pedido.id);
     }
 
-    const handleOpenModal = (pedido:Pedido) => {
-      setPedido(pedido);
-      setShow(true);
+    const handleOpenModal = (pedido: Pedido) => {
+        setPedido(pedido);
+        setShow(true);
     }
 
     const handleCloseModal = () => {
-      setShow(false);
+        setShow(false);
     }
 
     const handleChangeTab = (_event: React.SyntheticEvent, newValue: number) => {
-      setTab(newValue);
+        setTab(newValue);
     }
 
     function a11yProps(index: number) {
-      return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
-      };
+        return {
+            id: `full-width-tab-${index}`,
+            'aria-controls': `full-width-tabpanel-${index}`,
+        };
     }
 
     useEffect(() => {
@@ -65,18 +65,16 @@ const Caja = () => {
             onConnect: () => {
                 stompClient.subscribe(`/topic/pedidos/${sucursalSeleccionada.id}`, (message) => {
                     if (message.body) {
-                      const newPedido:Pedido = JSON.parse(message.body);
+                        const newPedido: Pedido = JSON.parse(message.body);
 
-                      if (newPedido.estado === Estados.TERMINADO)
-                        setPedidosTerminados((p) => [newPedido, ...p.filter(pedido => pedido.id !== newPedido.id)]);
-                      
-                      else if (newPedido.estado === Estados.PENDIENTE)
-                        setPedidosPendientes((p) => [newPedido, ...p.filter(pedido => pedido.id !== newPedido.id)]);
-                      
-                      else {
-                        setPedidosPendientes((p) => p.filter(pedido => pedido.id !== newPedido.id));
-                        setPedidosTerminados((p) => p.filter(pedido => pedido.id !== newPedido.id));
-                      }
+                        if (newPedido.estado === Estados.TERMINADO)
+                            setPedidosTerminados((p) => [newPedido, ...p.filter(pedido => pedido.id !== newPedido.id)]);
+                        else if (newPedido.estado === Estados.PENDIENTE)
+                            setPedidosPendientes((p) => [newPedido, ...p.filter(pedido => pedido.id !== newPedido.id)]);
+                        else {
+                            setPedidosPendientes((p) => p.filter(pedido => pedido.id !== newPedido.id));
+                            setPedidosTerminados((p) => p.filter(pedido => pedido.id !== newPedido.id));
+                        }
                     }
                 });
             },
@@ -91,38 +89,38 @@ const Caja = () => {
 
     return (
         <div className="m-3">
-          <AppBar position="static">
-            <Tabs
-            value={tab}
-            onChange={handleChangeTab}
-            indicatorColor="secondary"
-            textColor="inherit"
-            variant="fullWidth"
-            aria-label="full width tabs example"
-            >
-              <Tab label="Administración de pedidos" {...a11yProps(0)} />
-              <Tab label="Administración de facturas" {...a11yProps(1)} />
-            </Tabs>
-          </AppBar>
+            <AppBar position="static" sx={{ backgroundColor: '#ccdd91' }}>
+                <Tabs
+                    value={tab}
+                    onChange={handleChangeTab}
+                    textColor="inherit"
+                    variant="fullWidth"
+                    aria-label="full width tabs example"
+                    TabIndicatorProps={{ style: { backgroundColor: '#5bbec0' } }}
+                >
+                    <Tab label="Administración de pedidos" {...a11yProps(0)} sx={{ fontWeight: 'bold' }} />
+                    <Tab label="Administración de facturas" {...a11yProps(1)} sx={{ fontWeight: 'bold' }} />
+                </Tabs>
+            </AppBar>
 
-          {tab === 0 
-          ? <>
-              <CajaModalPedido pedido={pedido} show={show} handleCloseModal={handleCloseModal} enviarPedidoRest={enviarPedidoRest} putPedidoRest={putPedidoRest} />
-              <div className='row mt-3'>
-              <div className='col-12 card p-4 mx-3 col-xl'>
-                <h4 className="mb-3">Buzón de pedidos pendientes:</h4>
-                <CajaPedidos pedidos={pedidosPendientes} handleOpenModal={handleOpenModal} />
-              </div>
-              <div className='col-12 card p-4 mx-3 col-xl'>
-                <h4 className="mb-3">Buzón de pedidos terminados:</h4>
-                <CajaPedidos pedidos={pedidosTerminados} handleOpenModal={handleOpenModal} />
-              </div>
-              </div>
-            </>
-          : <>
-              <Facturacion/>
-            </>
-          }
+            {tab === 0
+                ? <>
+                    <CajaModalPedido pedido={pedido} show={show} handleCloseModal={handleCloseModal} enviarPedidoRest={enviarPedidoRest} putPedidoRest={putPedidoRest} />
+                    <div className='row mt-3'>
+                        <div className='col-12 card p-4 mx-3 col-xl'>
+                            <h4 className="mb-3">Buzón de pedidos pendientes:</h4>
+                            <CajaPedidos pedidos={pedidosPendientes} handleOpenModal={handleOpenModal} />
+                        </div>
+                        <div className='col-12 card p-4 mx-3 col-xl'>
+                            <h4 className="mb-3">Buzón de pedidos terminados:</h4>
+                            <CajaPedidos pedidos={pedidosTerminados} handleOpenModal={handleOpenModal} />
+                        </div>
+                    </div>
+                </>
+                : <>
+                    <Facturacion />
+                </>
+            }
         </div>
     )
 }

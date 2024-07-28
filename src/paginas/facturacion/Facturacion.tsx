@@ -102,7 +102,7 @@ const Facturacion = () => {
               </TableCell>
               <TableCell align="center">
                 { row.estado === Estado.FACTURADO &&
-                  <Button onClick={() => (handleFacturar(row.id))}>Imprimir factura</Button> }
+                  <Button className="btn-secondary custom-btn" onClick={() => (handleFacturar(row.id))}>Imprimir factura</Button> }
               </TableCell>
             </TableRow>
             <TableRow>
