@@ -585,15 +585,15 @@ const Manufacturados = () => {
 
         <TableContainer component={Paper}>
           <Table aria-label="collapsible table">
-            <TableHead>
+            <TableHead className='custom-modal-header'>
               <TableRow>
                 <TableCell />
-                <TableCell>Denominación</TableCell>
-                <TableCell align="center">Tiempo Estimado (min)</TableCell>
-                <TableCell align="center">Stock</TableCell>
-                <TableCell align="right">Precio de Venta</TableCell>
-                <TableCell align="center">Categoría</TableCell>
-                <TableCell align="center">Acciones</TableCell>
+                <TableCell style={{color:'#fff'}}>Denominación</TableCell>
+                <TableCell style={{color:'#fff'}} align="center">Tiempo Estimado (min)</TableCell>
+                <TableCell style={{color:'#fff'}} align="center">Stock</TableCell>
+                <TableCell style={{color:'#fff'}} align="right">Precio de Venta</TableCell>
+                <TableCell style={{color:'#fff'}} align="center">Categoría</TableCell>
+                <TableCell style={{color:'#fff'}} align="center">Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
