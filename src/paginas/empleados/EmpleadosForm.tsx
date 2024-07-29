@@ -118,8 +118,8 @@ function EmpleadosForm({ show, handleClose, empleado, setEmpleado, getEmpleadosR
 
     return (
         <Modal show={show} onHide={handleClose} className='modal-xl'>
-            <Modal.Header closeButton>
-                <Modal.Title>Empleado</Modal.Title>
+            <Modal.Header className="custom-modal-header" closeButton>
+                <Modal.Title className="custom-modal-title">Empleado</Modal.Title>
             </Modal.Header>
             {cargando 
             ? <div className="cargando-empleado">
@@ -215,7 +215,7 @@ function EmpleadosForm({ show, handleClose, empleado, setEmpleado, getEmpleadosR
                                         {errors['rol'] && <div className='ms-1 mt-1 text-danger'>{errors['rol']}</div>}
                                     </Form.Group>
                                     <Form.Group className="col mb-3" controlId="telefono">
-                                        <Form.Label>Teléfono</Form.Label>
+                                        <Form.Label >Teléfono</Form.Label>
                                         <Form.Control
                                             type="tel"
                                             value={empleado.telefono}
@@ -234,11 +234,11 @@ function EmpleadosForm({ show, handleClose, empleado, setEmpleado, getEmpleadosR
                         </div>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className="custom-modal-footer">
+                    <Button className="custom-btn" variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleSave}>
+                    <Button className="custom-btn-enviar" variant="primary" onClick={handleSave}>
                         Enviar
                     </Button>
                 </Modal.Footer>

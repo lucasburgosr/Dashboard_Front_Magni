@@ -45,17 +45,17 @@ const TableGenerica = <T,>({ rows, columns, renderActions }: TableGenericaProps<
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead>
-                        <TableRow style={{ backgroundColor: '#b9d162' }}>
+                        <TableRow style={{ backgroundColor: '#a6c732' }}>
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id}
                                     align={column.align}
-                                    style={{ minWidth: column.minWidth }}
+                                    style={{ minWidth: column.minWidth, color:'#fff' }}
                                 >
                                     {column.label}
                                 </TableCell>
                             ))}
-                            <TableCell align="center">Acciones</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">Acciones</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

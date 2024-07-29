@@ -179,12 +179,12 @@ const Clientes = () => {
                       Domicilios
                     </Typography>
                     <Table size="small" aria-label="purchases">
-                      <TableHead>
+                      <TableHead className='custom-modal-header'>
                         <TableRow>
-                          <TableCell>Calle</TableCell>
-                          <TableCell>Localidad</TableCell>
-                          <TableCell>Provincia</TableCell>
-                          <TableCell>País</TableCell>
+                          <TableCell style={{color:'#fff'}}>Calle</TableCell>
+                          <TableCell style={{color:'#fff'}}>Localidad</TableCell>
+                          <TableCell style={{color:'#fff'}}>Provincia</TableCell>
+                          <TableCell style={{color:'#fff'}}>País</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -213,8 +213,8 @@ const Clientes = () => {
     return (
         <div className="m-3">
             <Modal show={show} onHide={handleClose} className='modal-xl'>
-                <Modal.Header closeButton>
-                    <Modal.Title>Cliente</Modal.Title>
+                <Modal.Header className='custom-modal-header' closeButton>
+                    <Modal.Title className='custom-modal-title'>Cliente</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -299,11 +299,11 @@ const Clientes = () => {
                         </div>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className='custom-modal-footer'>
+                    <Button className='custom-btn' variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleSave}>
+                    <Button className='custom-btn-enviar' variant="primary" onClick={handleSave}>
                         Enviar
                     </Button>
                 </Modal.Footer>
@@ -317,14 +317,14 @@ const Clientes = () => {
                 
                 <TableContainer component={Paper}>
                     <Table aria-label="collapsible table">
-                        <TableHead>
+                        <TableHead className='custom-modal-header'>
                         <TableRow>
                             <TableCell />
-                            <TableCell align="center">Nombre</TableCell>
-                            <TableCell align="center">Teléfono</TableCell>
-                            <TableCell align="center">E-mail</TableCell>
-                            <TableCell align="center">Fecha de Nacimiento</TableCell>
-                            <TableCell align="center">Acciones</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">Nombre</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">Teléfono</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">E-mail</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">Fecha de Nacimiento</TableCell>
+                            <TableCell style={{color:'#fff'}} align="center">Acciones</TableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>

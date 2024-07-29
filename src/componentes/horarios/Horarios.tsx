@@ -77,8 +77,8 @@ const Horarios: React.FC<HorariosArgs> = ({ horarios, handleChange }) => {
         <>
             { show && <div className="modal-backdrop fade show"></div> }
             <Modal show={show} size="lg" onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Horario</Modal.Title>
+                <Modal.Header className="custom-modal-header" closeButton>
+                    <Modal.Title className="custom-modal-title">Horario</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <HorarioForm horario={horarioSeleccionado} handleChange={handleChangeHorario} handleSave={handleSaveHorario} />
@@ -95,7 +95,7 @@ const Horarios: React.FC<HorariosArgs> = ({ horarios, handleChange }) => {
             </div>
 
             <div className="row mx-1 mt-3">
-                <button type='button' className="btn btn-sm btn-secondary" onClick={() => handleShow()}>Nuevo Horario</button>
+                <button type='button' className="btn btn-sm btn-secondary custom-btn" onClick={() => handleShow()}>Nuevo Horario</button>
             </div>
         </>
     );

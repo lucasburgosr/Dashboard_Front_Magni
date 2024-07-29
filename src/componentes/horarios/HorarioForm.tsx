@@ -95,7 +95,7 @@ const HorarioForm: React.FC<HorarioFormArgs> = ({ horario, handleChange, handleS
             </div>
 
             <div className="d-flex justify-content-end mt-3">
-                <Button variant="primary" onClick={handleGuardar}>Guardar</Button>
+                <Button className="custom-btn-enviar" variant="primary" onClick={handleGuardar}>Guardar</Button>
             </div>
         </Form>
     );

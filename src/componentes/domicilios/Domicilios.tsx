@@ -76,8 +76,8 @@ function Domicilios({ domicilios, editar = false, handleChange }: DomiciliosArgs
                 && <div className="modal-backdrop fade show"></div> 
             }
             <Modal size="lg" show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Domicilio</Modal.Title>
+                <Modal.Header className="custom-modal-header" closeButton>
+                    <Modal.Title className="custom-modal-title">Domicilio</Modal.Title>
                 </Modal.Header>
                 
                 <Modal.Body>
@@ -85,10 +85,10 @@ function Domicilios({ domicilios, editar = false, handleChange }: DomiciliosArgs
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button className="custom-btn" variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleDomicilioUpdate}>
+                    <Button className="custom-btn-enviar" variant="primary" onClick={handleDomicilioUpdate}>
                         Enviar
                     </Button>
                 </Modal.Footer>
@@ -104,7 +104,7 @@ function Domicilios({ domicilios, editar = false, handleChange }: DomiciliosArgs
 
             {editar &&
                 <div className="row mx-1 mt-3">
-                    <button type='button' className="btn btn-sm btn-secondary" onClick={() => handleShow(new Domicilio)}>Nuevo</button>
+                    <button type='button' className="btn btn-sm btn-secondary custom-btn" onClick={() => handleShow(new Domicilio)}>Nuevo</button>
                 </div>
             }
 
