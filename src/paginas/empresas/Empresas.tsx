@@ -93,8 +93,8 @@ export default function Empresas() {
 
         <div className="m-3">
             <Modal show={showEmpresa} onHide={handleCloseEmpresa}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Empresa</Modal.Title>
+                <Modal.Header className="custom-modal-header" closeButton>
+                    <Modal.Title className="custom-modal-title">Empresa</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -156,11 +156,11 @@ export default function Empresas() {
 
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseEmpresa}>
+                <Modal.Footer className="custom-modal-footer">
+                    <Button className="custom-btn" variant="secondary" onClick={handleCloseEmpresa}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleSaveEmpresa}>
+                    <Button className="custom-btn-enviar" variant="primary" onClick={handleSaveEmpresa}>
                         Enviar
                     </Button>
                 </Modal.Footer>

@@ -146,8 +146,8 @@ export default function Sucursales() {
             </Collapse>
 
             <Modal show={showSucursal} onHide={handleCloseSucursal} className="modal-xl">
-                <Modal.Header closeButton>
-                    <Modal.Title>Sucursal</Modal.Title>
+                <Modal.Header className="custom-modal-header" closeButton>
+                    <Modal.Title className="custom-modal-title">Sucursal</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -204,11 +204,11 @@ export default function Sucursales() {
                         </div>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseSucursal}>
+                <Modal.Footer className="custom-modal-footer"> 
+                    <Button className="custom-btn" variant="secondary" onClick={handleCloseSucursal}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleSaveSucursal}>
+                    <Button className="custom-btn-enviar" variant="primary" onClick={handleSaveSucursal}>
                         Enviar
                     </Button>
                 </Modal.Footer>
