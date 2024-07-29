@@ -6,6 +6,7 @@ import ChipEstado from '../../componentes/chipEstado/ChipEstado';
 import { TipoEnvio } from '../../entidades/enums/TipoEnvio';
 import { format } from 'date-fns';
 import { useEmpleado } from '../../hooks/useEmpleado';
+import '../../componentes/botonNuevo.css';
 
 function CajaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest, putPedidoRest} : {pedido:Pedido, show:boolean, enviarPedidoRest:() => void, handleCloseModal:() => void, putPedidoRest:() => void}) {
     const {empleado} = useEmpleado();  
@@ -40,7 +41,7 @@ function CajaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest, putP
 
     return (
       <Modal size='xl' show={show} onHide={handleCloseModal}>
-      <Modal.Header closeButton>Pedido</Modal.Header>
+      <Modal.Header className='custom-modal-header' closeButton>Pedido</Modal.Header>
       <Modal.Body>
       <div className='m-4 card p-4 bg-light'>
           <div className='row justify-content-between'>

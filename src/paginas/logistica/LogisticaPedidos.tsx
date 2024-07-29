@@ -37,13 +37,13 @@ export default function LogisticaPedidos ({pedidos, handleOpenModal} : {pedidos:
     return <div>
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
-        <TableHead>
+        <TableHead className="custom-modal-header">
         <TableRow>
-            <TableCell align="center">N°Pedido</TableCell>
-            <TableCell align="center">Hora</TableCell>
-            <TableCell align="center">Entrega</TableCell>
-            <TableCell align="center">Pago</TableCell>
-            <TableCell align="center">Controlar</TableCell>
+            <TableCell style={{color:'#ffffff'}} align="center">N°Pedido</TableCell>
+            <TableCell style={{color:'#ffffff'}} align="center">Hora</TableCell>
+            <TableCell style={{color:'#ffffff'}} align="center">Entrega</TableCell>
+            <TableCell style={{color:'#ffffff'}} align="center">Pago</TableCell>
+            <TableCell style={{color:'#ffffff'}} align="center">Controlar</TableCell>
         </TableRow>
         </TableHead>
         <TableBody>
