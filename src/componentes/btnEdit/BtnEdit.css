@@ -1,0 +1,17 @@
+.btn-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+    background-color: #5bbec0;
+    margin: '2px';
+    border-radius: 20%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #d3d3d3; /* Fondo gris al hacer hover */
+}
+
