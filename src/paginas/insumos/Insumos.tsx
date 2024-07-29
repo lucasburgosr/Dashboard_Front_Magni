@@ -30,7 +30,6 @@ import StockInsumo from '../../entidades/StockInsumo';
 import Slider from 'react-slick';
 import { TablePagination } from '@mui/material';
 import { useSucursales } from '../../hooks/useSucursales';
-import BtnVisible from '../../componentes/btnVisible/BtnVisible';
 import BtnDelete from '../../componentes/btnDelete/BtnDelete';
 import BtnAdd from '../../componentes/btnAdd/BtnAdd';
 
@@ -41,7 +40,7 @@ const Insumos = () => {
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<number>(0);
     const [errors, setErrors] = useState<{ [key in keyof ArticuloInsumo]?: string }>({});
     const [insumos, setInsumos] = useState<ArticuloInsumo[]>([]);
-    const [mostrarVisibles, setMostrarVisibles] = useState<boolean>(true);
+    const [mostrarVisibles] = useState<boolean>(true);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [show, setShow] = useState(false);
@@ -337,12 +336,12 @@ const Insumos = () => {
                                     Stock por sucursal
                                 </Typography>
                                 <Table size="small" aria-label="purchases">
-                                    <TableHead>
+                                    <TableHead className='custom-modal-header'>
                                         <TableRow>
-                                            <TableCell>Sucursal</TableCell>
-                                            <TableCell align="right">Stock Actual</TableCell>
-                                            <TableCell align="right">Stock Mínimo</TableCell>
-                                            <TableCell align="right">Stock Máximo</TableCell>
+                                            <TableCell style={{ color: '#fff' }}>Sucursal</TableCell>
+                                            <TableCell style={{ color: '#fff' }} align="right">Actual</TableCell>
+                                            <TableCell style={{ color: '#fff' }} align="right">Mínimo</TableCell>
+                                            <TableCell style={{ color: '#fff' }} align="right">Máximo</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -384,8 +383,8 @@ const Insumos = () => {
     return (
         <div className="m-3">
             <Modal show={show} onHide={handleClose} className='modal-xl'>
-                <Modal.Header closeButton>
-                    <Modal.Title>Insumo</Modal.Title>
+                <Modal.Header closeButton className="custom-modal-header">
+                    <Modal.Title className="custom-modal-title">Insumo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -530,14 +529,14 @@ const Insumos = () => {
                         && <div className="modal-backdrop fade show"></div> 
                     }
                     <Modal show={showCategorias} onHide={() => setShowCategorias(false)}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Categorías</Modal.Title>
+                        <Modal.Header closeButton className='custom-modal-header'>
+                            <Modal.Title className='custom-modal-title'>Categorías</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <CategoriasForm />
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="primary" onClick={() => setShowCategorias(false)}>
+                            <Button className='custom-btn-enviar' variant="primary" onClick={() => setShowCategorias(false)}>
                                 Guardar
                             </Button>
                         </Modal.Footer>
@@ -547,24 +546,24 @@ const Insumos = () => {
                         && <div className="modal-backdrop fade show"></div> 
                     }
                     <Modal show={showUnidadesMedida} onHide={() => setShowUnidadesMedida(false)}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Unidades de Medida</Modal.Title>
+                        <Modal.Header closeButton className='custom-modal-header'>
+                            <Modal.Title className='custom-modal-title'>Unidades de Medida</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <UnidadesMedidaForm />
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="primary" onClick={() => setShowUnidadesMedida(false)}>
+                            <Button className='custom-btn-enviar' variant="primary" onClick={() => setShowUnidadesMedida(false)}>
                                 Guardar
                             </Button>
                         </Modal.Footer>
                     </Modal>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className='custom-modal-footer'>
+                    <Button className='custom-btn' variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleSave}>
+                    <Button className='custom-btn-enviar' variant="primary" onClick={handleSave}>
                         Enviar
                     </Button>
                 </Modal.Footer>
@@ -581,9 +580,7 @@ const Insumos = () => {
                             datos={categoriasFiltradas}
                             handleChange={handleChangeCategoria}
                         />
-                        <div className="ms-2 mt-2">
-                            <BtnVisible valor={mostrarVisibles} handleClick={() => setMostrarVisibles(!mostrarVisibles)} />
-                        </div>
+                        
                         <a
                         className="col ms-5 btn btn-lg btn-secondary custom-btn"
                         onClick={() => handleShow()}
@@ -595,15 +592,15 @@ const Insumos = () => {
 
                 <TableContainer component={Paper}>
                     <Table aria-label="collapsible table">
-                        <TableHead>
+                        <TableHead className='custom-modal-header'>
                             <TableRow>
                                 <TableCell />
-                                <TableCell>Denominacion</TableCell>
-                                <TableCell align="right">Precio de compra</TableCell>
-                                <TableCell align="right">Precio de venta</TableCell>
-                                <TableCell align="right">Categoría</TableCell>
-                                <TableCell align="center">Es para elaborar</TableCell>
-                                <TableCell align="center">Acciones</TableCell>
+                                <TableCell style={{ color: '#fff' }}>Denominacion</TableCell>
+                                <TableCell style={{ color: '#fff' }}align="right">Precio de compra</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="right">Precio de venta</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="right">Categoría</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="center">Es para elaborar</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="center">Acciones</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
