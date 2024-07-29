@@ -1,5 +1,40 @@
-.accordion-no-arrow::after {
-    display: none;
-    background-image: initial;
-    width: 0;
+.unidad-medida-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #e0ebc2;
+    border: 10px solid #f0f0f0; /* Borde gris */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 2px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
+
+
+.unidad-medida-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    
+}
+
+.unidad-medida-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unidad-medida-accordion {
+    margin-top: 20px;
+    border: 3px ;
+    border-radius:2px;
+    
+}
+
+.unidad-medida-validation {
+    color: red;
+    line-height: 1;
+    padding: 1px;
+    user-select: none;
+    text-align: center;
+}
+.custom-accordion-button::after {
+    display: none !important;
+  }
