@@ -65,18 +65,19 @@ function CajaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest, putP
           <div className='row'>
               {pedido.estado === Estados.PENDIENTE 
                   ?   <>
-                          <Button className='col me-4 btn-success' onClick={aprobarPedido}>Aprobar</Button>
-                          <Button className='col me-4 btn-danger' onClick={cancelarPedido}>Cancelar</Button>
+                          <Button className='col me-4' style={{backgroundColor: '#a6c732', borderColor: '#a6c732'}} onClick={aprobarPedido}>Aprobar</Button>
+                          <Button className='col me-4' style={{backgroundColor: '#e2504c', borderColor: '#e2504c'}} onClick={cancelarPedido}>Cancelar</Button>
                       </>
                   :   (pedido.tipoEnvio === TipoEnvio.Delivery) 
-                          ?   <Button className='col me-4 btn-success' onClick={mandarDeliveryPedido}>Delivery</Button>
+                          ?   <Button className='col me-4' style={{backgroundColor: '#a6c732', borderColor: '#a6c732'}} onClick={mandarDeliveryPedido}>Delivery</Button>
                           :   <Button className='col me-4 btn-primary' onClick={facturarPedido}>Facturar</Button>
               }
-              <Button className='col btn-secondary' onClick={handleCloseModal}>Volver</Button>
+              <Button className='col btn-secondary custom-btn' onClick={handleCloseModal}>Volver</Button>
+              
           </div>
         </Modal.Footer>
       </Modal>
       )
 }
     
-export default CajaModalPedido
+export default CajaModalPedido;

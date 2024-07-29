@@ -37,8 +37,8 @@ function LogisticaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest,
           </Modal.Body>
           <Modal.Footer>
             <div className='row'>
-                <Button className='col btn-success me-4' onClick={entregarPedido}>Entregar</Button>
-                <Button className='col btn-secondary' onClick={handleCloseModal}>Volver</Button>
+                <Button className='col me-4' style={{backgroundColor: '#a6c732', borderColor: '#a6c732'}} onClick={entregarPedido}>Entregar</Button>
+                <Button className='col btn-secondary custom-btn' onClick={handleCloseModal}>Volver</Button>
             </div>
           </Modal.Footer>
         </Modal>
