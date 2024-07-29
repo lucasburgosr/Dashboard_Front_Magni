@@ -195,15 +195,15 @@ const Facturacion = () => {
                 
                 <TableContainer component={Paper}>
                     <Table aria-label="collapsible table">
-                        <TableHead className='custom-modal-header'>
+                        <TableHead>
                         <TableRow>
                             <TableCell />
-                            <TableCell style={{color:'#fff'}} align="center">Nro. de Pedido</TableCell>
-                            <TableCell style={{color:'#fff'}} align="center">Fecha de Pedido</TableCell>
-                            <TableCell style={{color:'#fff'}} align="center">Forma de Entrega</TableCell>
-                            <TableCell style={{color:'#fff'}} align="center">Forma de Pago</TableCell>
-                            <TableCell style={{color:'#fff'}} align="center">Estado</TableCell>
-                            <TableCell style={{color:'#fff'}} align="center">Acciones</TableCell>
+                            <TableCell align="center">Nro. de Pedido</TableCell>
+                            <TableCell align="center">Fecha de Pedido</TableCell>
+                            <TableCell align="center">Forma de Entrega</TableCell>
+                            <TableCell align="center">Forma de Pago</TableCell>
+                            <TableCell align="center">Estado</TableCell>
+                            <TableCell align="center">Acciones</TableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>

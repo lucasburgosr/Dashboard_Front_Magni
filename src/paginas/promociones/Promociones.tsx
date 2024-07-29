@@ -645,14 +645,14 @@ const Promociones = () => {
 
         <TableContainer component={Paper}>
           <Table aria-label="collapsible table">
-            <TableHead className="custom-modal-header">
+            <TableHead>
               <TableRow>
                 <TableCell />
-                <TableCell style={{color:'#fff'}}>Denominacion</TableCell>
-                <TableCell style={{color:'#fff'}}>Tipo de Promoción</TableCell>
-                <TableCell style={{color:'#fff'}}>Fecha desde / hasta</TableCell>
-                <TableCell style={{color:'#fff'}} align="right">Precio Promocional</TableCell>
-                <TableCell style={{color:'#fff'}} align="center">Acciones</TableCell>
+                <TableCell>Denominacion</TableCell>
+                <TableCell>Tipo de Promoción</TableCell>
+                <TableCell>Fecha desde / hasta</TableCell>
+                <TableCell align="right">Precio Promocional</TableCell>
+                <TableCell align="center">Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
