@@ -522,14 +522,14 @@ const Manufacturados = () => {
             && <div className="modal-backdrop fade show"></div> 
           }
           <Modal show={showCategorias} onHide={() => setShowCategorias(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Categorías</Modal.Title>
+            <Modal.Header closeButton className="custom-modal-header">
+              <Modal.Title className="custom-modal-title" >Categorías</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <CategoriasForm />
             </Modal.Body>
             <Modal.Footer >
-              <Button variant="primary" onClick={() => setShowCategorias(false)}>
+              <Button className="custom-btn-enviar" variant="primary" onClick={() => setShowCategorias(false)}>
                 Guardar
               </Button>
             </Modal.Footer>
@@ -539,14 +539,14 @@ const Manufacturados = () => {
             && <div className="modal-backdrop fade show"></div> 
           }
           <Modal show={showUnidadesMedida} onHide={() => setShowUnidadesMedida(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Unidades de Medida</Modal.Title>
+            <Modal.Header closeButton className="custom-modal-header">
+              <Modal.Title className="custom-modal-title">Unidades de Medida</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <UnidadesMedidaForm />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="primary" onClick={() => setShowUnidadesMedida(false)}>
+              <Button className="custom-btn-enviar" variant="primary" onClick={() => setShowUnidadesMedida(false)}>
                 Guardar
               </Button>
             </Modal.Footer>

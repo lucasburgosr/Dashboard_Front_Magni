@@ -6,6 +6,7 @@ import PromocionDetalle from "../../entidades/PromocionDetalle";
 import Promocion from "../../entidades/Promocion";
 import ModalDetallesPromocion from "./ModalDetallesPromocion";
 import ArticuloManufacturadoDetalle from "../../entidades/ArticuloManufacturadoDetalle";
+import "../../componentes/botonNuevo.css";
 
 function CargarDetallesPromocion({ promocion, handleChange }: { promocion:Promocion, handleChange: (key: keyof object, value: unknown) => void}) {
     const [detalles, setDetalles] = useState<PromocionDetalle []>([]);
@@ -34,8 +35,8 @@ function CargarDetallesPromocion({ promocion, handleChange }: { promocion:Promoc
             && <div className="modal-backdrop fade show"></div> 
         }
         <Modal className="modal-xl" centered show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Editar Detalles</Modal.Title>
+            <Modal.Header className='custom-modal-header'  closeButton>
+                <Modal.Title className='custom-modal-title'>Editar Detalles</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <ModalDetallesPromocion detallesPrevios={detalles} onDetallesChange={actualizarDetalles} handleCloseModal={handleClose}/>
@@ -50,7 +51,7 @@ function CargarDetallesPromocion({ promocion, handleChange }: { promocion:Promoc
                 <tr>
                     <th colSpan={4}>
                         <div className='row'>
-                        <button type="button" className='btn btn-secondary' onClick={handleShow}>Editar</button>
+                        <button type="button" className='btn btn-secondary custom-btn' onClick={handleShow}>Editar</button>
                         </div>
                     </th>
                 </tr>

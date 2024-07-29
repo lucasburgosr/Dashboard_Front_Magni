@@ -174,9 +174,9 @@ function ModalDetallesManufacturado({
 
   return (
     <div>
-      <div className="mb-3">
+      <div className="mb-3 ">
         <div className="row">
-          <div className="col-12 col-xl-8">
+          <div className="col-12 col-xl-12">
             <div className="d-flex justify-content-between">
               <h5 className="my-auto">Agregar insumos</h5>
               <div className="col-8">
@@ -227,7 +227,7 @@ function ModalDetallesManufacturado({
               )}
             </div>
           </div>
-          <div className="col-12 col-xl-4">
+          <div className="col-12 col-xl-12">
             <div className="d-flex mb-1" style={{height:'48px'}}>
               <h5 className='my-auto'>Modificar cantidad</h5>
             </div>
@@ -252,7 +252,7 @@ function ModalDetallesManufacturado({
         </div>
         </div>
         <div className="d-flex justify-content-end">
-          <button className="btn btn-success" onClick={handleButtonClick}>Guardar</button>
+          <button className="btn custom-btn-enviar" onClick={handleButtonClick}>Guardar</button>
         </div>
         
       </div>

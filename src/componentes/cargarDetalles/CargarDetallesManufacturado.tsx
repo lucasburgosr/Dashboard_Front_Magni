@@ -34,8 +34,8 @@ function CargarDetallesManufacturado({ articulo, handleChange }: { articulo:Arti
             && <div className="modal-backdrop fade show"></div> 
         }
         <Modal className="modal-xl" centered show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Editar Detalles</Modal.Title>
+            <Modal.Header closeButton className="custom-modal-header">
+                <Modal.Title className="custom-modal-title">Editar Detalles</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <ModalDetallesManufacturado detallesPrevios={detalles} onDetallesChange={actualizarDetalles} handleCloseModal={handleClose}/>

@@ -416,8 +416,8 @@ const Promociones = () => {
         </Alert>
       </Collapse>
       <Modal show={show} onHide={handleClose} size="xl">
-        <Modal.Header closeButton>
-          <Modal.Title>Promocion</Modal.Title>
+        <Modal.Header className='custom-modal-header' closeButton>
+          <Modal.Title className='custom-modal-title'>Promocion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -607,11 +607,11 @@ const Promociones = () => {
             </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Modal.Footer className='custom-modal-footer'>
+          <Button className='custom-btn' variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={handleSave}>
+          <Button className="custom-btn-enviar" variant="primary" onClick={handleSave}>
             Enviar
           </Button>
         </Modal.Footer>
