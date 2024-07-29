@@ -103,7 +103,7 @@ function CategoriasForm() {
                         sx={{
                             bgcolor: "#e05151",
                             "&:hover": {
-                                bgcolor: "#a0b750",
+                                bgcolor: "#db3939",
                             },
                             my: 3,
                             mx: 1,

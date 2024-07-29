@@ -1,5 +1,5 @@
 .categoria-container {
-    max-width: 50%;
+    max-width: 70%;
     margin: 50px auto;
     background-color: #e0ebc2;
     border: 10px solid #f0f0f0; /* Borde gris */
@@ -38,3 +38,44 @@
 .no-arrow .accordion-button::after {
     display: none;
   }
+  .categoria-accordion .accordion-button {
+    background-color: #f8f9fa;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.categoria-accordion .accordion-button:hover {
+    background-color: #e0ecbe            ; /* Cambia el color de fondo al hacer hover */
+    color: #000; /* Cambia el color del texto al hacer hover */
+}
+
+.categoria-accordion .accordion-button.collapsed {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.categoria-accordion .accordion-button.collapsed:hover {
+    background-color: #e0ecbe            ; /* Cambia el color de fondo al hacer hover */
+    color: #000; /* Cambia el color del texto al hacer hover */
+}
+
+.input-categoria .accordion-button {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+.input-categoria .accordion-button:hover {
+    background-color: #e0ecbe; /* Cambia el color de fondo al hacer hover */
+    color: #000; /* Cambia el color del texto al hacer hover */
+}
+
+.custom-button {
+    background-color: #e05151;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #a0b750;
+    color: #fff;
+}
