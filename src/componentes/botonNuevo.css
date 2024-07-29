@@ -34,3 +34,6 @@
     text-align: center;
     color: #fff
   }
+   .modal-dialog {
+    max-width: 60%;
+  }
