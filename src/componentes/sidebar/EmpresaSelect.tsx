@@ -45,11 +45,14 @@ export default function EmpresaSelect() {
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClickListItem}
             disabled={empleado?.rol !== Rol.Superadmin}
+            
            
           >
             <ListItemText
-              secondary={empresaSeleccionada.nombre}
+              primary={empresaSeleccionada.nombre}
               className='text-truncate'
+              
+              
             />
           </ListItemButton>
         </div>
@@ -63,6 +66,7 @@ export default function EmpresaSelect() {
           'aria-labelledby': 'lock-button',
           role: 'listbox',
         }}
+        
         
       >
         {empresas.map((option) => (
