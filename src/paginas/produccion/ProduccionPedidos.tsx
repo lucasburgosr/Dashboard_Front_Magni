@@ -26,7 +26,7 @@ export default function ProduccionPedidos ({pedidos, handleOpenModal} : {pedidos
               <TableCell align="center">{format(row.fechaPedido, "HH:mm")}</TableCell>
               <TableCell align="center">{row.tipoEnvio}</TableCell>
               <TableCell align="center">{row.formaPago}</TableCell>
-              <TableCell align="center"><Button onClick={() => (handleOpenModal(row))}>Pedido</Button></TableCell>
+              <TableCell align="center"><Button className="custom-btn" onClick={() => (handleOpenModal(row))}>Pedido</Button></TableCell>
             </TableRow>
           </Fragment>
         );

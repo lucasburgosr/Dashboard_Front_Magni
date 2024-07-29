@@ -33,7 +33,9 @@ function ProduccionModalPedido({pedido, show, handleCloseModal, putPedidoRest} :
 
     return (
         <Modal className='modal-xxl' centered show={show} onHide={handleCloseModal}>
-            <Modal.Header closeButton>Pedido</Modal.Header>
+            <Modal.Header className='custom-modal-header' closeButton>
+                <Modal.Title className='custom-modal-title'>Pedido</Modal.Title>
+            </Modal.Header>
             <Modal.Body>
                 <div className='m-4 card p-4 bg-light'>
                     <div className='row justify-content-between'>
@@ -136,11 +138,11 @@ function ProduccionModalPedido({pedido, show, handleCloseModal, putPedidoRest} :
                     </div>
                 </div>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className='custom-modal-footer'>
                 <div className='row'>
-                    <Button className='col me-4 btn-secondary' onClick={handleCloseModal}>Volver</Button>
-                    <Button className='col me-4 btn-primary' onClick={demorarPedido}>+10 min</Button>
-                    <Button className='col me-4 btn-success' onClick={terminarPedido}>Terminado</Button>
+                    <Button className='col me-4 btn-secondary custom-btn' onClick={handleCloseModal}>Volver</Button>
+                    <Button className='col me-4 btn-secondary' onClick={demorarPedido}>+10 min</Button>
+                    <Button className='col me-4 btn-success custom-btn-enviar' onClick={terminarPedido}>Terminado</Button>
                 </div>
             </Modal.Footer>
         </Modal>

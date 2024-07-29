@@ -13,7 +13,6 @@ export default function Empresas() {
     const [showEmpresa, setShowEmpresa] = useState(false);
     const [errorsEmpresa, setErrorsEmpresa] = useState<{ [key in keyof Empresa]?: string }>({});
 
-    const urlcliente = import.meta.env.VITE_FRONT_CLIENT_URL;
     const urlapi = import.meta.env.VITE_API_URL;
     const empresasService = new EmpresaService(urlapi + "/api/empresas");
 
@@ -171,12 +170,12 @@ export default function Empresas() {
                     {empresas.map((empresa: Empresa) => (
                         <div key={empresa.id} className="card border-0 mx-2" style={{ width: "242px", height: "250px" }}>
                             <img src={empresa.imagen.url} className="card-img-top" style={{ height: '165px' }} alt="..." />
-                            <div className="card-body m-0 p-0">
+                            <div className="card-body m-0 p-0" style={{ backgroundColor: '#b9d162' }}>
                                 <div className="d-flex">
-                                    <div className="col">
-                                        <h5 className="card-title mb-0">{empresa.nombre}</h5>
-                                        <a href={`${urlcliente}/${empresa.id}`}><h6 className="card-text my-0">{empresa.domain}</h6></a>
-                                        <p className="card-text" style={{ fontSize: '0.8rem' }}>{empresa.razonSocial} </p>
+                                    <div className="col" >
+                                        <h5 className="card-title mb-4 mt-2">{empresa.nombre}</h5>
+                                        <h6 className="card-text" style={{ fontSize: '0.8rem' }}>{empresa.razonSocial}</h6>
+                                        
                                     </div>
                                     <div className="col-4 mt-1 d-flex justify-content-between">
                                         <BtnEdit handleClick={() => handleShowEmpresa(empresa)} />
@@ -196,10 +195,10 @@ export default function Empresas() {
                     justifyContent: 'center',
                     alignItems: 'center',
                     cursor: 'pointer',
-                    backgroundColor:'#E0E0E0'
+                    backgroundColor:'#b9d162'
                     }} > <div style={{width: '121px',
                     height: '120px'}}>
-                        <svg fill="#999999"className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-6flbmm" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AddIcon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path></svg>
+                        <svg fill="#e0ebc2"className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-6flbmm" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AddIcon"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"></path></svg>
                         </div>  
                         </button>
                 </div>

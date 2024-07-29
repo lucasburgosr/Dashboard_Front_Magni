@@ -14,7 +14,9 @@ function LogisticaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest,
 
     return (
         <Modal className='modal-xxl' show={show} onHide={handleCloseModal}>
-        <Modal.Header closeButton>Pedido</Modal.Header>
+        <Modal.Header className='custom-modal-header' closeButton>
+          <Modal.Title className='custom-modal-title'>Pedido</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
         <div className='m-4 card p-4 bg-light'>
             <div className='row justify-content-between'>
@@ -35,9 +37,9 @@ function LogisticaModalPedido({pedido, show, handleCloseModal, enviarPedidoRest,
             <TablePedido pedido={pedido}/>
           </div>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer className='custom-modal-footer'>
             <div className='row'>
-                <Button className='col me-4' style={{backgroundColor: '#a6c732', borderColor: '#a6c732'}} onClick={entregarPedido}>Entregar</Button>
+                <Button className='col me-4' style={{backgroundColor: '#a6c732', borderColor: '#a6c732'}} onClick={entregarPedido}>Entregado</Button>
                 <Button className='col btn-secondary custom-btn' onClick={handleCloseModal}>Volver</Button>
             </div>
           </Modal.Footer>
