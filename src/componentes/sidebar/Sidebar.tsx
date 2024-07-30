@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { cilBarChart, cilBuilding, cilCreditCard, cilFastfood, cilIndustry, cilPeople } from "@coreui/icons";
+import { cibKoding, cibBuffer, cibMastercard, cibKoFi, cibCirrusci, cibJenkins } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
 import { CNavGroup, CNavItem, CSidebar, CSidebarNav } from "@coreui/react";
 import EmpresaSelect from './EmpresaSelect';
@@ -13,10 +13,10 @@ function Sidebar() {
 
     const links = [
         { to: "/", label: "EmpresaSelect", component: <EmpresaSelect /> },
-        { to: "/empresas", icon: cilBuilding, label: "Empresas", superAdmin: true },
-        { to: "/sucursales", icon: cilIndustry, label: "Sucursales", superAdmin: true },
+        { to: "/empresas", icon: cibBuffer, label: "Empresas", superAdmin: true },
+        { to: "/sucursales", icon: cibCirrusci, label: "Sucursales", superAdmin: true },
         {
-            label: "Articulos", icon: cilFastfood, subItems: [
+            label: "Articulos", icon: cibKoFi, subItems: [
                 { to: "/categorias", label: "Categorías" },
                 { to: "/unidadesmedida", label: "Unidades de Medida" },
                 { to: "/insumos", label: "Insumos" },
@@ -25,14 +25,14 @@ function Sidebar() {
             ]
         },
         {
-            label: "Usuarios", icon: cilPeople, subItems: [
+            label: "Usuarios", icon: cibJenkins, subItems: [
                 { to: "/clientes", label: "Clientes" },
                 { to: "/empleados", label: "Empleados" }
             ]
         },
-        { to: "/facturacion", icon: cilCreditCard, label: "Facturación" },
+        { to: "/facturacion", icon: cibMastercard, label: "Facturación" },
         {
-            label: "Estadisticas", icon: cilBarChart, subItems: [
+            label: "Estadisticas", icon: cibKoding, subItems: [
                 { to: "/estadisticas", label: "Estadísticas" },
                 { to: "/pedidos", label: "Pedidos" }
             ]

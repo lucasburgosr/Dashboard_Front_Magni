@@ -37,3 +37,7 @@
    .modal-dialog {
     max-width: 60%;
   }
+
+  .custom-icon-color {
+    color: #5bbec0 !important;
+  }

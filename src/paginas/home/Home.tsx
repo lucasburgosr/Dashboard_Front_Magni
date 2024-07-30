@@ -2,7 +2,7 @@ import { useEmpresas } from '../../hooks/useEmpresas';
 import { useSucursales } from "../../hooks/useSucursales";
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { cilBarChart, cilBuilding, cilCreditCard, cilFastfood, cilIndustry, cilPeople } from "@coreui/icons";
+import { cibKoding, cibBuffer, cibMastercard, cibKoFi, cibCirrusci, cibJenkins } from "@coreui/icons";
 import CIcon from "@coreui/icons-react";
 import LoaderPage from "../../componentes/loaderPage/LoaderPage";
 import { useEffect } from "react";
@@ -10,6 +10,7 @@ import { Rol } from "../../entidades/enums/Rol";
 import { useEmpleado } from "../../hooks/useEmpleado";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Alert } from '@mui/material';
+import '../../componentes/botonNuevo.css'
 
 function Home() {
     const { empresaSeleccionada } = useEmpresas();
@@ -19,17 +20,17 @@ function Home() {
     const { empleado } = useEmpleado();
 
     const links = [
-        { to: "/empresas", icon: cilBuilding, label: "Empresas", superadmin: true },
-        { to: "/sucursales", icon: cilIndustry, label: "Sucursales", superadmin: true },
-        { to: "/categorias", icon: cilFastfood, label: "Categorías" },
-        { to: "/unidadesmedida", icon: cilFastfood, label: "Unidades de Medida" },
-        { to: "/insumos", icon: cilFastfood, label: "Insumos" },
-        { to: "/manufacturados", icon: cilFastfood, label: "Manufacturados" },
-        { to: "/promociones", icon: cilFastfood, label: "Promociones" },
-        { to: "/clientes", icon: cilPeople, label: "Clientes" },
-        { to: "/empleados", icon: cilPeople, label: "Empleados" },
-        { to: "/facturacion", icon: cilCreditCard, label: "Facturación" },
-        { to: "/estadisticas", icon: cilBarChart, label: "Estadísticas" },
+        { to: "/empresas", icon: cibBuffer, label: "Empresas", superadmin: true },
+        { to: "/sucursales", icon: cibCirrusci, label: "Sucursales", superadmin: true },
+        { to: "/categorias", icon: cibKoFi, label: "Categorías" },
+        { to: "/unidadesmedida", icon: cibKoFi, label: "Unidades de Medida" },
+        { to: "/insumos", icon: cibKoFi, label: "Insumos" },
+        { to: "/manufacturados", icon: cibKoFi, label: "Manufacturados" },
+        { to: "/promociones", icon: cibKoFi, label: "Promociones" },
+        { to: "/clientes", icon: cibJenkins, label: "Clientes" },
+        { to: "/empleados", icon: cibJenkins, label: "Empleados" },
+        { to: "/facturacion", icon: cibMastercard, label: "Facturación" },
+        { to: "/estadisticas", icon: cibKoding, label: "Estadísticas" },
     ];
 
     const redirigirUsuario = () => {
@@ -85,7 +86,7 @@ function Home() {
                                             <Card.Body className="d-flex flex-column justify-content-between">
                                                 <div>
                                                     <Card.Header className="border rounded" style={{ backgroundColor: '#FFFFFFAA', marginBottom: "10px" }}>
-                                                        <CIcon style={{color:'#5bbec0' }} customClassName="nav-icon" icon={link.icon} size="xl" height={60} />
+                                                        <CIcon className="custom-icon-color" customClassName="nav-icon" icon={link.icon} size="xl" height={60} />
                                                     </Card.Header>
                                                     <Card.Title className="text-center">{link.label}</Card.Title>
                                                 </div>
@@ -105,7 +106,7 @@ function Home() {
                 ?   <div className="container text-center">
                         <h1 className="mb-4">Bienvenido a {empresaSeleccionada.nombre}</h1>
                         <img src={empresaSeleccionada.imagen.url} className='col-6 rounded' />
-                        <h4 className="m-3">Inicie sesión para continuar</h4>
+                        
                     </div>
                 :   <div className="container text-center">
                         <h1 className="mb-4">Bienvenido al Buen Sabor</h1>

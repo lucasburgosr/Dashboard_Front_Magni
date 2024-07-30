@@ -1,6 +1,7 @@
 // App.tsx
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect, useState } from 'react';
+import './styles.css'
 
 import Sidebar from "./componentes/sidebar/Sidebar";
 import NavBar from "./componentes/navbar/NavBar";
