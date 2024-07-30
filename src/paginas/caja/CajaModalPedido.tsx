@@ -7,6 +7,7 @@ import { TipoEnvio } from "../../entidades/enums/TipoEnvio";
 import { format } from "date-fns";
 import { useEmpleado } from "../../hooks/useEmpleado";
 import "../../componentes/botonNuevo.css";
+import PedidoService from "../../servicios/PedidoService";
 
 function CajaModalPedido({
   pedido,
@@ -32,10 +33,17 @@ function CajaModalPedido({
     }
   };
 
-  const cancelarPedido = () => {
+  const pedidoService = new PedidoService("http://localhost:8080/api/pedidos");
+
+  const cancelarPedido = async () => {
     pedido.estado = Estados.CANCELADO;
-    putPedidoRest();
-    handleCloseModal();
+    try {
+      await pedidoService.cancelarPedido(pedido.id);
+      putPedidoRest(); // Asumo que esta función actualiza la lista de pedidos
+      handleCloseModal();
+    } catch (error) {
+      console.error("Error al cancelar el pedido:", error);
+    }
   };
 
   const mandarDeliveryPedido = () => {
