@@ -223,7 +223,10 @@ const Insumos = () => {
     } else if (articuloInsumo.precioVenta >= 1000000000) {
       erroresNuevos["precioVenta"] =
         "El precio de venta es demasiado grande. limítese a 9 cifras";
-    }
+    } else if (articuloInsumo.precioVenta < articuloInsumo.precioCompra) {
+    erroresNuevos["precioVenta"] =
+      "El precio de venta no puede ser menor que el precio de compra.";
+  }
     if (articuloInsumo.unidadMedida.id === 0) {
       erroresNuevos["unidadMedida"] = "Debe ingresar la unidad de medida";
     }

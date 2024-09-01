@@ -416,206 +416,190 @@ const Promociones = () => {
         </Alert>
       </Collapse>
       <Modal show={show} onHide={handleClose} size="xl">
-        <Modal.Header className='custom-modal-header' closeButton>
-          <Modal.Title className='custom-modal-title'>Promocion</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <div className="row">
-              <div className="col-sm col-md col-lg d-flex flex-column justify-content-between">
-                <div className="row">
-                  <Form.Group
-                    className="col-12 col-xl-5 mt-auto mb-3"
-                    controlId="denominacion"
-                  >
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={promocion.denominacion}
-                      autoFocus
-                      onChange={handleInputChange}
-                      required
-                    />
-                    {errors["denominacion"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["denominacion"]}
-                      </div>
-                    )}
-                  </Form.Group>
-                  <Form.Group
-                    className="col-12 col-lg-6 col-xl-4 mt-auto mb-3"
-                    controlId="tipoPromocion"
-                  >
-                    <Form.Label>Tipo</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={promocion.tipoPromocion}
-                      className="form-select"
-                      onChange={handleInputChange}
-                    >
-                      <option key={0} value="" disabled>
-                        Seleccione una opción
-                      </option>
-                      <option key={1} value="HappyHour">
-                        Happy Hour
-                      </option>
-                      <option key={2} value="Promocion">
-                        Promoción
-                      </option>
-                    </Form.Control>
-
-                    {errors["tipoPromocion"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["tipoPromocion"]}
-                      </div>
-                    )}
-                  </Form.Group>
-                  <Form.Group
-                    className="col-12 col-lg-6 col-xl-3 mt-auto mb-3"
-                    controlId="precioPromocional"
-                  >
-                    <Form.Label>Precio prom.</Form.Label>
-                    <div className="input-group">
-                      <span className="input-group-text">$</span>
-                      <Form.Control
-                        type="number"
-                        value={promocion.precioPromocional}
-                        min={0}
-                        step={0.1}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    {errors["precioPromocional"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["precioPromocional"]}
-                      </div>
-                    )}
-                  </Form.Group>
+  <Modal.Header className="custom-modal-header" closeButton>
+    <Modal.Title className="custom-modal-title">Promoción</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Form>
+      <div className="row">
+        <div className="col-lg-6 d-flex flex-column justify-content-between">
+          <div className="row">
+            <Form.Group className="col-12 col-lg-6 mb-3" controlId="denominacion">
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control
+                type="text"
+                value={promocion.denominacion}
+                autoFocus
+                onChange={handleInputChange}
+                required
+              />
+              {errors["denominacion"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["denominacion"]}
                 </div>
+              )}
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="descripcionDescuento">
-                  <Form.Label>Descripción</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    value={promocion.descripcionDescuento}
-                    onChange={handleInputChange}
-                  />
-                  {errors["descripcionDescuento"] && (
-                    <div className="ms-1 mt-1 text-danger">
-                      {errors["descripcionDescuento"]}
-                    </div>
-                  )}
-                </Form.Group>
-
-                <div className="row">
-                  <Form.Group
-                    className="col-6 col-xl-3 pe-0 mb-3 mt-auto"
-                    controlId="fechaDesde"
-                  >
-                    <Form.Label>Fecha desde:</Form.Label>
-                    <Form.Control
-                      type="date"
-                      value={String(promocion.fechaDesde)}
-                      onChange={handleInputChange}
-                    />
-                    {errors["fechaDesde"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["fechaDesde"]}
-                      </div>
-                    )}
-                  </Form.Group>
-                  <Form.Group
-                    className="col-6 col-xl-3 ps-2 mb-3 mt-auto"
-                    controlId="horaDesde"
-                  >
-                    <Form.Control
-                      type="time"
-                      value={String(promocion.horaDesde)}
-                      onChange={handleInputChange}
-                    />
-                    {errors["horaDesde"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["horaDesde"]}
-                      </div>
-                    )}
-                  </Form.Group>
-                  <Form.Group
-                    className="col-6 col-xl-3 pe-0 mb-3 mt-auto"
-                    controlId="fechaHasta"
-                  >
-                    <Form.Label>Fecha hasta:</Form.Label>
-                    <Form.Control
-                      type="date"
-                      value={String(promocion.fechaHasta)}
-                      onChange={handleInputChange}
-                    />
-                    {errors["fechaHasta"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["fechaHasta"]}
-                      </div>
-                    )}
-                  </Form.Group>
-                  <Form.Group
-                    className="col-6 col-xl-3 ps-2 mb-3 mt-auto"
-                    controlId="horaHasta"
-                  >
-                    <Form.Control
-                      type="time"
-                      value={String(promocion.horaHasta)}
-                      onChange={handleInputChange}
-                    />
-                    {errors["horaHasta"] && (
-                      <div className="ms-1 mt-1 text-danger">
-                        {errors["horaHasta"]}
-                      </div>
-                    )}
-                  </Form.Group>
+            <Form.Group className="col-12 col-lg-6 mb-3" controlId="tipoPromocion">
+              <Form.Label>Tipo</Form.Label>
+              <Form.Control
+                as="select"
+                value={promocion.tipoPromocion}
+                className="form-select"
+                onChange={handleInputChange}
+              >
+                <option key={0} value="" disabled>
+                  Seleccione una opción
+                </option>
+                <option key={1} value="HappyHour">
+                  Happy Hour
+                </option>
+                <option key={2} value="Promocion">
+                  Promoción
+                </option>
+              </Form.Control>
+              {errors["tipoPromocion"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["tipoPromocion"]}
                 </div>
-              </div>
-              <div className="col-sm col-md col-lg d-flex flex-column justify-content-between">
-                <Form.Group controlId="promocionDetalles">
-                  <Form.Label>Cargar detalles</Form.Label>
-                  <CargarDetallesPromocion
-                    promocion={promocion}
-                    handleChange={(key, value) =>
-                      setPromocion((prevState) => ({
-                        ...prevState,
-                        [key]: value,
-                      }))
-                    }
-                  />
-                  {errors["promocionDetalles"] && (
-                    <div className="ms-1 mt-1 text-danger">
-                      {errors["promocionDetalles"]}
-                    </div>
-                  )}
-                </Form.Group>
-              </div>
+              )}
+            </Form.Group>
 
-              <Form.Group controlId="imagenes">
-                <Form.Label>Imágenes</Form.Label>
-                <CargarImagenes
-                  imagenes={promocion.imagenes}
-                  handleChange={(key, value) =>
-                    setPromocion((prevState) => ({
-                      ...prevState,
-                      [key]: value,
-                    }))
-                  }
+            <Form.Group className="col-12 col-lg-6 mb-3" controlId="precioPromocional">
+              <Form.Label>Precio prom.</Form.Label>
+              <div className="input-group">
+                <span className="input-group-text">$</span>
+                <Form.Control
+                  type="number"
+                  value={promocion.precioPromocional}
+                  min={0}
+                  step={0.1}
+                  onChange={handleInputChange}
                 />
-              </Form.Group>
-            </div>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer className='custom-modal-footer'>
-          <Button className='custom-btn' variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className="custom-btn-enviar" variant="primary" onClick={handleSave}>
-            Enviar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+              </div>
+              {errors["precioPromocional"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["precioPromocional"]}
+                </div>
+              )}
+            </Form.Group>
+          </div>
+
+          <Form.Group className="mb-3" controlId="descripcionDescuento">
+            <Form.Label>Descripción</Form.Label>
+            <Form.Control
+              as="textarea"
+              value={promocion.descripcionDescuento}
+              onChange={handleInputChange}
+            />
+            {errors["descripcionDescuento"] && (
+              <div className="ms-1 mt-1 text-danger">
+                {errors["descripcionDescuento"]}
+              </div>
+            )}
+          </Form.Group>
+
+          <div className="row">
+            <Form.Group className="col-12 col-md-6 mb-3" controlId="fechaDesde">
+              <Form.Label>Fecha desde</Form.Label>
+              <Form.Control
+                type="date"
+                value={String(promocion.fechaDesde)}
+                onChange={handleInputChange}
+              />
+              {errors["fechaDesde"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["fechaDesde"]}
+                </div>
+              )}
+            </Form.Group>
+            <Form.Group className="col-12 col-md-6 mb-3" controlId="horaDesde">
+              <Form.Label>Hora desde</Form.Label>
+              <Form.Control
+                type="time"
+                value={String(promocion.horaDesde)}
+                onChange={handleInputChange}
+              />
+              {errors["horaDesde"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["horaDesde"]}
+                </div>
+              )}
+            </Form.Group>
+            <Form.Group className="col-12 col-md-6 mb-3" controlId="fechaHasta">
+              <Form.Label>Fecha hasta</Form.Label>
+              <Form.Control
+                type="date"
+                value={String(promocion.fechaHasta)}
+                onChange={handleInputChange}
+              />
+              {errors["fechaHasta"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["fechaHasta"]}
+                </div>
+              )}
+            </Form.Group>
+            <Form.Group className="col-12 col-md-6 mb-3" controlId="horaHasta">
+              <Form.Label>Hora hasta</Form.Label>
+              <Form.Control
+                type="time"
+                value={String(promocion.horaHasta)}
+                onChange={handleInputChange}
+              />
+              {errors["horaHasta"] && (
+                <div className="ms-1 mt-1 text-danger">
+                  {errors["horaHasta"]}
+                </div>
+              )}
+            </Form.Group>
+          </div>
+        </div>
+
+        <div className="col-lg-6 d-flex flex-column justify-content-between">
+          <Form.Group controlId="promocionDetalles">
+            <Form.Label>Cargar detalles</Form.Label>
+            <CargarDetallesPromocion
+              promocion={promocion}
+              handleChange={(key, value) =>
+                setPromocion((prevState) => ({
+                  ...prevState,
+                  [key]: value,
+                }))
+              }
+            />
+            {errors["promocionDetalles"] && (
+              <div className="ms-1 mt-1 text-danger">
+                {errors["promocionDetalles"]}
+              </div>
+            )}
+          </Form.Group>
+
+          <Form.Group controlId="imagenes" className="mt-3">
+            <Form.Label>Imágenes</Form.Label>
+            <CargarImagenes
+              imagenes={promocion.imagenes}
+              handleChange={(key, value) =>
+                setPromocion((prevState) => ({
+                  ...prevState,
+                  [key]: value,
+                }))
+              }
+            />
+          </Form.Group>
+        </div>
+      </div>
+    </Form>
+  </Modal.Body>
+  <Modal.Footer className="custom-modal-footer">
+    <Button className="custom-btn" variant="secondary" onClick={handleClose}>
+      Cerrar
+    </Button>
+    <Button className="custom-btn-enviar" variant="primary" onClick={handleSave}>
+      Enviar
+    </Button>
+  </Modal.Footer>
+</Modal>
+
 
       <div>
         <div className="d-flex justify-content-between">
