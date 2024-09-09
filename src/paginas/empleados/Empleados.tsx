@@ -91,14 +91,7 @@ const Empleados = () => {
             handleBusqueda={handleBusqueda}
           />
 
-          <div className="col mb-3 mt-auto d-flex justify-content-end">
-            <a
-              className="col ms-5 btn btn-lg btn-secondary custom-btn"
-              onClick={() => handleShow()}
-            >
-              Nuevo
-            </a>
-          </div>
+          
         </div>
 
         <EmpleadosTable
